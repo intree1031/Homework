@@ -10,7 +10,8 @@
 <body>
 
 <header>
-  <h1>じゃんけん</h1>
+  <h1>ワクワク</h1>
+  <h1>ジャンケン大会</h1>
 </header>
 
 <main>
@@ -20,16 +21,67 @@
     <li id="par_btn">パー</li>
   </ul>
   <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
-  <div id="judgment">勝ち</div>
+  <div id="judgment"></div>
+  <div id="again">
+    <p id="moji"></p>
+  </div>
 </main>
 
 <footer></footer>
 <script>
 //じゃんけん用のSCRIPTを書いてください
-
-    
-    
-    
+// コンピューターの手を定義する
+let comp = Math.ceil(Math.random()*3) 
+  console.log (comp)
+  // グーのとき
+$("#gu_btn").on("click",function(){
+  let input_gu = 1;
+if (comp == 1){
+  $("#pc_hands").text("グー")
+  $("#judgment").text("あいこです")
+}else if (comp == 2 ){
+  $("#pc_hands").text("チョキ")
+  $("#judgment").text("勝ちです")
+}else if (comp == 3 ){
+  $("#pc_hands").text("パー")
+  $("#judgment").text("負けです")
+}
+  $("#moji").text("もう一回やる？？")
+})
+  // チョキの時
+  $("#cho_btn").on("click",function(){
+  let input_cho = 2;
+if (comp == 1){
+  $("#pc_hands").text("グー")
+  $("#judgment").text("負けです")
+}else if (comp == 2 ){
+  $("#pc_hands").text("チョキ")
+  $("#judgment").text("あいこです")
+}else if (comp == 3 ){
+  $("#pc_hands").text("パー")
+  $("#judgment").text("勝ちです")
+}
+  $("#moji").text("もう一回やる？？")
+})
+  // パーの時
+  $("#par_btn").on("click",function(){
+  let input_par = 3;
+if (comp == 1){
+  $("#pc_hands").text("グー")
+  $("#judgment").text("勝ちです")
+}else if (comp == 2 ){
+  $("#pc_hands").text("チョキ")
+  $("#judgment").text("負けです")
+}else if (comp == 3 ){
+  $("#pc_hands").text("パー")
+  $("#judgment").text("あいこです")
+}
+  $("#moji").text("もう一回やる？？")
+})
+// 更新ボタン
+$("#again").on("click",function(){
+  location.reload()
+})
     
     
     
